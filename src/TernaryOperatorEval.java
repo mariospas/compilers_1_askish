@@ -17,8 +17,8 @@ class TernaryOperatorEval {
 
     private void consume(int symbol) throws IOException, ParseError 
     {
-    	System.out.print("Consume " + (char)lookaheadToken);
-    	System.out.println();
+    	//System.out.print("Consume " + (char)lookaheadToken);
+    	//System.out.println();
 		if (lookaheadToken != symbol)
 		    throw new ParseError();
 		lookaheadToken = in.read();
@@ -32,16 +32,16 @@ class TernaryOperatorEval {
 
     private String Expr(String str) throws IOException, ParseError 
     {
-    	System.out.println("Expr");
-    	System.out.println(((char)lookaheadToken));
+    	//System.out.println("Expr");
+    	//System.out.println(((char)lookaheadToken));
     	String str1 = "";
     	String str2 = "";
     	
     	str1 += Term(str1);  	
     	str2 += Expr2(str2);
     	
-    	System.out.println("EXPR = " + str1);
-    	System.out.println("EXPR = " + str2);
+    	//System.out.println("EXPR = " + str1);
+    	//System.out.println("EXPR = " + str2);
     	
     	
     	if (str2.length() >= 1)
@@ -62,16 +62,16 @@ class TernaryOperatorEval {
     
     private String Term(String str) throws IOException, ParseError 
     {
-    	System.out.println("Term");
-    	System.out.println(((char)lookaheadToken));
+    	//System.out.println("Term");
+    	//System.out.println(((char)lookaheadToken));
     	
     	String str1 = "";
     	String str2 = "";
     	
     	str1 += Factor(str1);
-    	System.out.println("After factor sto Term = " + str1);
+    	//System.out.println("After factor sto Term = " + str1);
     	str2 += Term2(str2);
-    	System.out.println("After Term2 sto Term = " + str2);
+    	//System.out.println("After Term2 sto Term = " + str2);
     	//e += t;
     	
     	if (str2.length() >= 1)
@@ -91,8 +91,8 @@ class TernaryOperatorEval {
     
     private String Expr2(String str) throws IOException, ParseError 
     {
-    	System.out.println("Expr2");
-    	System.out.println(((char)lookaheadToken));
+    	//System.out.println("Expr2");
+    	//System.out.println(((char)lookaheadToken));
     	if(lookaheadToken != '+' && lookaheadToken != '-')
 		{
     		//throw new ParseError();
@@ -106,9 +106,9 @@ class TernaryOperatorEval {
     	String str2 = "";
 		
 		str1 += Term(str1);
-		System.out.println("After Term sto Expr2 = " + str1);
+		//System.out.println("After Term sto Expr2 = " + str1);
 		str2 +=Expr2(str2);
-		System.out.println("After Expr2 sto Expr2 = " + str2);
+		//System.out.println("After Expr2 sto Expr2 = " + str2);
 		
 		if (str2.length() >= 1)
 		{
@@ -128,8 +128,8 @@ class TernaryOperatorEval {
     
     private String Factor(String str) throws IOException, ParseError 
     {
-    	System.out.println("Factor");
-    	System.out.println(((char)lookaheadToken));
+    	//System.out.println("Factor");
+    	//System.out.println(((char)lookaheadToken));
     	if(lookaheadToken == '\n' || lookaheadToken == -1)
 		{
 			System.out.println("epistrefo logo " + lookaheadToken);
@@ -166,8 +166,8 @@ class TernaryOperatorEval {
     
     private String Term2(String str) throws IOException, ParseError 
     {
-    	System.out.println("Term2");
-    	System.out.println(((char)lookaheadToken));
+    	//System.out.println("Term2");
+    	//System.out.println(((char)lookaheadToken));
     	if(lookaheadToken != '*' && lookaheadToken != '/')
 		{
     		//throw new ParseError();
@@ -186,7 +186,7 @@ class TernaryOperatorEval {
 		{
 			char a = str2.charAt(0);
 		
-			System.out.println("AAAAA = " + a);
+			//System.out.println("AAAAA = " + a);
 			if(a == '*' || a == '/')
 			{
 				str2 = str2.substring(1);
